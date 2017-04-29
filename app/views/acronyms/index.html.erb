@@ -5,8 +5,9 @@
   </p>
 <% end %>
 <div id="acronym"><%= render 'acronym' %></div>
+<hr>
 <% if @wiki.present? %>
-  <%= @wiki.summary %>
+  <%= @wiki.summary %> <br> <br> <br>
   <% @wiki.image_urls.each do |img| %>
     <%= image_tag "#{img}" %>
   <% end %>
