@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429055204) do
+ActiveRecord::Schema.define(version: 20170429114939) do
 
   create_table "acronyms", force: :cascade do |t|
     t.string   "acry"
     t.string   "full_form"
     t.text     "definition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "search_suggestions", force: :cascade do |t|
+    t.string   "term"
+    t.integer  "popularity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+20.times do
+  Acronym.create({
+    acry: Faker::Name.unique.name,
+    full_form: Faker::Name.unique.name,
+    definition: Faker::Lorem.paragraphs(1)
+    })
+end

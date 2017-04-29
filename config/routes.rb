@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :search_suggestions
   root 'static_pages#index'
   resources :acronyms do
     collection { post :import }

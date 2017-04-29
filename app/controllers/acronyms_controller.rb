@@ -5,16 +5,21 @@ class AcronymsController < ApplicationController
 
   def create
     @acronym = Acronym.create(acronym_params)
-
+    if @acronym.valid?
+      redirect_to acronyms_path
+    else
+      redirect_to :back
+    end
   end
-  
+
   def import
     Acronym.import(params[:file])
     redirect_to root_url, notice: "data imported."
   end
 
   def index
-    @acronyms = Acronym.all
+    @acronyms = Acronym.search(params[:search]).order("acry DESC").paginate(per_page: 10, page: params[:page])
+    @wiki = Acronym.get_wiki(@acronyms.first.full_form) if @acronyms.present? && params[:search].present?
   end
 
   private

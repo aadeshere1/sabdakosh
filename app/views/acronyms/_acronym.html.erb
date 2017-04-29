@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Acronym</th>
+    <th>Full Form</th>
+  </tr>
+  <% @acronyms.each do |arc| %>
+    <tr>
+        <td><%= arc.acry %> </td>
+        <td><%= arc.full_form %> </td>
+    </tr>
+  <% end %>
+
+</table>
+<%= will_paginate @acronyms %>

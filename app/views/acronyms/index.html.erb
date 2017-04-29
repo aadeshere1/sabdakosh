@@ -1,0 +1,13 @@
+<%= form_tag acronyms_path, method: :get, id: "acronyms_search"  do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'search', name: nil %>
+  </p>
+<% end %>
+<div id="acronym"><%= render 'acronym' %></div>
+<% if @wiki.present? %>
+  <%= @wiki.summary %>
+  <% @wiki.image_urls.each do |img| %>
+    <%= image_tag "#{img}" %>
+  <% end %>
+<% end %>
