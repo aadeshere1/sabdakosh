@@ -4,3 +4,8 @@
   <%= f.input :definition %>
   <%= f.submit 'Submit', class: 'btn btn-primary' %>
 <% end %>
+
+<%= form_tag import_acronyms_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  form-group
+    = submit_tag "import csv", class: 'button'

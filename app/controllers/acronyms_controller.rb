@@ -7,6 +7,11 @@ class AcronymsController < ApplicationController
     @acronym = Acronym.create(acronym_params)
 
   end
+  
+  def import
+    Acronym.import(params[:file])
+    redirect_to root_url, notice: "data imported."
+  end
 
   def index
     @acronyms = Acronym.all
