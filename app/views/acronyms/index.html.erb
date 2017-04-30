@@ -6,6 +6,7 @@
   </p>
 <% end %>
 </center>
+<% if !@wiki.present? %><center><div id="acronym"><%= render 'acronym' %></div></center><% end %>
 <% if @wiki.present? %>
 	<div class="container">
 			<div class="row">
@@ -21,7 +22,7 @@
 				  <div class="panel panel-default">
 						<div class="panel-body">
 							<center>
-								<h2><%= @wiki.title %></h2>
+								<h2><%= link_to @wiki.title, @wiki.fullurl %></h2>
 							</center>
 							<p>
 								<%= @wiki.summary %>

@@ -18,7 +18,7 @@ class AcronymsController < ApplicationController
   end
 
   def index
-    @acronyms = Acronym.search(params[:search]).order("acry asc").paginate(per_page: 10, page: params[:page])
+    @acronyms = Acronym.search(params[:search]).order("acry asc").paginate(per_page: 20, page: params[:page])
     @wiki = Acronym.get_wiki(@acronyms.first.full_form) if @acronyms.present? && params[:search].present?
   end
 
