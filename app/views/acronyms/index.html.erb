@@ -1,62 +1,57 @@
+<center>
 <%= form_tag acronyms_path, method: :get, id: "acronyms_search"  do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag 'search', name: nil %>
   </p>
 <% end %>
-<div id="acronym"><%= render 'acronym' %></div>
-<hr>
-<% if @wiki.present? && @wiki.image_urls.present? %>
-
-  <script>
-    // var image = <%= @wiki.image_urls.first %>;
-
-    $(document).ready(function() {
-          $('body').css('background-image', "url('<%= @wiki.image_urls.first %>')");
-      });
-  // (function() {
-  //       // The following code will be enclosed within an anonymous function
-  //       var foo = "Goodbye World!";
-  //       document.write("<p>Inside our anonymous function foo means '" + foo + '".</p>');
-  //   })();
-  </script>
-<% end %>
-
+</center>
 <% if @wiki.present? %>
-  <%= @wiki.summary %> <br> <br> <br>
-  <div class="container">
-    <div class="row">
-      <h1>Images from wikipedia for <%= @wiki.title %></h1>
-       <% @wiki.image_urls.each do |img| %>
-        <div class="col-lg-3 col-sm-4 col-xs-6">
-          <a title="image" href="#">
-            <%= image_tag("#{img}", class: "thumbnail img-responsive") %>
-          </a>
-        </div>
-      <% end %>
-      <hr>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="panel panel-default left-panel">
+						<div class="panel-body">
+							<div id="acronym"><%= render 'acronym' %></div>
+						</div>
+					</div>
 
-      <hr>
-    </div>
-  </div>
-
-
+				</div>
+				<div class="col-md-6"><br><br><br>
+				  <div class="panel panel-default">
+						<div class="panel-body">
+							<center>
+								<h2><%= @wiki.title %></h2>
+							</center>
+							<p>
+								<%= @wiki.summary %>
+							</p>
+									<h1>Images from wikipedia for <%= @wiki.title %></h1>
+									 <% @wiki.image_urls.each do |img| %>
+										<div class="">
+											<a title="image" href="#">
+												<%= image_tag("#{img}", class: "thumbnail img-responsive") %>
+											</a>
+										</div>
+									<% end %>
+								<br><br>
+							<div class="pull-left">
+								<span>Like</span>
+							</div>
+							<div class="pull-right">
+								<a href="https://www.facebook.com/DLZYagiz"><i class="fa fa-2x fa fa-facebook-square"></i></a>  
+								<a><i class="fa fa-2x fa fa-google-plus-square"></i></a>  
+								<a><i class="fa fa-2x fa fa-twitter-square"></i></a>  
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <% end %>
 
 
-<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-		<button class="close" type="button" data-dismiss="modal">×</button>
-		<h3 class="modal-title">Heading</h3>
-	</div>
-	<div class="modal-body">
 
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-default" data-dismiss="modal">Close</button>
-	</div>
-   </div>
-  </div>
-</div>
+
+
+<hr>
