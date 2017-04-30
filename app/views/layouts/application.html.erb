@@ -22,13 +22,16 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Sabdakosh</a>
+            <%= link_to 'Sabdakosh', root_path, class: 'navbar-brand' %>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to 'Explore', acronyms_path %> </li>
               <li><a href="#">Random</a></li>
+              <li><%= link_to 'Instruction', instructions_path %></li>
+              <li><%= link_to 'Add Data', new_acronym_path %></li>
               <li><a href="#">Login</a></li>
               <li><a href="#">Register</a></li>
 
