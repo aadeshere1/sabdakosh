@@ -6,9 +6,57 @@
 <% end %>
 <div id="acronym"><%= render 'acronym' %></div>
 <hr>
+<% if @wiki.present? && @wiki.image_urls.present? %>
+
+  <script>
+    // var image = <%= @wiki.image_urls.first %>;
+
+    $(document).ready(function() {
+          $('body').css('background-image', "url('<%= @wiki.image_urls.first %>')");
+      });
+  // (function() {
+  //       // The following code will be enclosed within an anonymous function
+  //       var foo = "Goodbye World!";
+  //       document.write("<p>Inside our anonymous function foo means '" + foo + '".</p>');
+  //   })();
+  </script>
+<% end %>
+
 <% if @wiki.present? %>
   <%= @wiki.summary %> <br> <br> <br>
-  <% @wiki.image_urls.each do |img| %>
-    <%= image_tag "#{img}" %>
-  <% end %>
+  <div class="container">
+    <div class="row">
+      <h1>Images from wikipedia for <%= @wiki.title %></h1>
+       <% @wiki.image_urls.each do |img| %>
+        <div class="col-lg-3 col-sm-4 col-xs-6">
+          <a title="image" href="#">
+            <%= image_tag("#{img}", class: "thumbnail img-responsive") %>
+          </a>
+        </div>
+      <% end %>
+      <hr>
+
+      <hr>
+    </div>
+  </div>
+
+
 <% end %>
+
+
+<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+		<button class="close" type="button" data-dismiss="modal">×</button>
+		<h3 class="modal-title">Heading</h3>
+	</div>
+	<div class="modal-body">
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+   </div>
+  </div>
+</div>
