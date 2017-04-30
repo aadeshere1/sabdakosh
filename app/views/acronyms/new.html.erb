@@ -1,11 +1,33 @@
-<%= simple_form_for @acronym do |f| %>
-  <%= f.input :acry %>
-  <%= f.input :full_form %>
-  <%= f.input :definition %>
-  <%= f.submit 'Submit', class: 'btn btn-primary' %>
-<% end %>
+<div class="login-box">
+    <%= simple_form_for @acronym do |f| %>
+		<div class="panel panel-default">
+			<div class="panel-heading"><b>Add Acronym</b> <span class="glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span></div>
+			<div class="panel-body">
+				<div class="form-group has-primary has-feedback">
+					<label class="control-label" for="login">Acronym <span class="regForm text-danger">*</span></label>
+          <%= f.input :acry, label: false, class: "form-control" %>
+				</div>
+				<div class="form-group has-primary has-feedback">
+					<label class="control-label" for="password">Full Form <span class="regForm text-danger">*</span></label>
+					<%= f.input  :full_form, label: false, class: "form-control" %>
+				</div>
+			</div>
+			<div class="panel-footer">
+			  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+			</div>
+		</div>
+    <div class="panel-footer">
+      <p>Import CSV</p>
+      <%= form_tag import_acronyms_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "import csv", class: 'button' %>
+      <% end %>
 
+    </div>
+  <% end %>
+</div>
+<!--
 <%= form_tag import_acronyms_path, multipart: true do %>
   <%= file_field_tag :file %>
-    <%= submit_tag "import csv", class: 'button' %>
-    <% end %>
+  <%= submit_tag "import csv", class: 'button' %>
+<% end %> -->
