@@ -22,6 +22,8 @@ class AcronymsController < ApplicationController
     @wiki = Acronym.get_wiki(@acronyms.first.full_form) if @acronyms.present? && params[:search].present?
   end
 
+
+
   private
   def acronym_params
     params.require(:acronym).permit(:acry, :full_form, :definition)
