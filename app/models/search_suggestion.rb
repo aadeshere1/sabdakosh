@@ -17,4 +17,8 @@ class SearchSuggestion < ApplicationRecord
       s.increment! :popularity
     end
   end
+
+  def self.divbyzero
+    2332/0
+  end
 end
