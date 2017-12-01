@@ -19,8 +19,8 @@ Bundler.require(*Rails.groups)
 
 module Sadbakosh
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    Raven.configure do |config|
+      config.dsn = 'https://fcc1715e06ac4fdc9ded1b195516d806:ac32d65ec4fe4e2eb73de8e81162a432@sentry.io/253174'
+    end
   end
 end
